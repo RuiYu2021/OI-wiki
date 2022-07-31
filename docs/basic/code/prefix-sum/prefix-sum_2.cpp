@@ -16,13 +16,13 @@ int main() {
     }
   }
 
-  int ans = 1;
+  int ans = 0;  // 可能全为0，则找不到这样的正方形
 
   int l = 2;
   while (l <= min(n, m)) {  // 判断条件
     for (int i = l; i <= n; i++) {
       for (int j = l; j <= m; j++) {
-        if (b[i][j] - b[i - l][j] - b[i][j - l] + b[i - l][j - l] == l * l) {
+        if (b[i][j] - b[i - l][j] - b[i][j - l] + b[i - l][j - l] == l * l) {  // 此处亦可提取代码并作为函数调用，但若如此要注意边界
           ans = max(ans, l);  // 在这里统计答案
         }
       }
